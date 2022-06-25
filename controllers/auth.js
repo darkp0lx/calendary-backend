@@ -18,8 +18,9 @@ const createUser = async (req, res = response) => {
       })
     } else {
       //bcrypt password
-      const salt = await bcrypt.genSaltSync()
+      const salt = await bcrypt.genSalt(10)
       newUser.password = await bcrypt.hashSync(password, salt)
+
 
       //jwt token
       const token = await generateJWT(newUser._id, newUser.name)

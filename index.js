@@ -17,6 +17,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 
+app.use('/events', require('./routes/events.js'))
 app.use('/auth', require('./routes/auth.js'))
 
 
